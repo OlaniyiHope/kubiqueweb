@@ -134,7 +134,7 @@ const Registers = () => {
                         <div class="post-input post-input-2">
                           <input
                             type="text"
-                            placeholder="Years in business"
+                            placeholder="Postal Zip code"
                             id="username"
                             onChange={handleChange}
                           />
@@ -142,19 +142,27 @@ const Registers = () => {
                       </div>
 
                       <div class="col-xl-12">
-                        <div>
-                          <p>Select an option:</p>
+                        <div class="post-input post-input-2">
                           <select
                             id="dropdown"
                             value={selectedOption}
                             onChange={handleChange}
+                            style={{
+                              padding: "14px",
+                              width: "100%",
+                              backgroundColor: "#eeeff4",
+                            }}
                           >
-                            <option value="">-- Select --</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
+                            <option value="" disabled>
+                              Number of years in business
+                            </option>
+                            <option value="option1">1-5 year</option>
+                            <option value="option2">6-10 years</option>
+                            <option value="option3">11 - 15</option>
+                            <option value="option3">16 - 20</option>
+                            <option value="option3">21 - 25</option>
+                            <option value="option3">26 - 30</option>
                           </select>
-                          <p>Selected option: {selectedOption}</p>
                         </div>
                       </div>
                       <div class="col-xl-12">
