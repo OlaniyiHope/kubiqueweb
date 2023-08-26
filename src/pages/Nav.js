@@ -92,6 +92,28 @@ const Nav = () => {
                     </nav>
                   </div>
                 </div>
+                <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-8 col-6">
+                  <div class="sasup-header-action-btn">
+                    <a
+                      class="sasup-transparent-btn d-none d-sm-inline-block"
+                      href="/login"
+                    >
+                      <i class="far fa-user"></i>
+                      <Link to="https://kubiqueweb.vercel.app">Login</Link>
+                    </a>
+                    <a
+                      class="sasup-theme-btn style-white ml-25 d-none d-sm-inline-block"
+                      href="/register"
+                    >
+                      <Link to="https://kubiqueweb.vercel.app">Register</Link>
+                    </a>
+                    <div class="mobile-bar-control mobile-bar-control-white d-inline-block d-lg-none">
+                      <div class="line"></div>
+                      <div class="line"></div>
+                      <div class="line"></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
