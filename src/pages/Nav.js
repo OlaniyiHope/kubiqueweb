@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import MyBackgroundImage4 from "./assets/img/logo/logo.png";
 import MyBackgroundImage7 from "./assets/img/logo/logo.png";
 import MyBackgroundImage3 from "./assets/img/logo/logo-white.png";
-
+import "./Nav.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 
 const Nav = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
   return (
     <div>
       <header id="header-wrap">
@@ -16,17 +21,17 @@ const Nav = () => {
               <div class="row align-items-center">
                 <div class="col-xxl-9 col-xl-9 d-flex align-items-center col-lg-8 col-md-6 col-sm-4 col-6">
                   <div class="sasup-logo mr-35 d-inline-block">
-                    <a href="index.html">
-                      <bold> </bold>
-                    </a>
-                    <a>
-                      <bold>
-                        {" "}
-                        <h6 style={{ color: "white", fontSize: "25px" }}>
-                          KUBIQUE
-                        </h6>
-                      </bold>
-                    </a>
+                    <a href="index.html"></a>
+                    <h6
+                      style={{
+                        color: "white",
+                        fontWeight: "700",
+                        fontSize: "23px",
+                        textDecoration: "none",
+                      }}
+                    >
+                      KUBIQUE
+                    </h6>
                   </div>
                   <div class="sasup-header d-none d-lg-inline-block">
                     <nav id="mobile-menu">
@@ -112,10 +117,17 @@ const Nav = () => {
                     >
                       <Link to="https://kubiqueweb.vercel.app">Register</Link>
                     </a>
-                    <div class="mobile-bar-control mobile-bar-control-white d-inline-block d-lg-none">
-                      <div class="line"></div>
-                      <div class="line"></div>
-                      <div class="line"></div>
+                    <div
+                      className={`mobile-bar-control mobile-bar-control-white ${
+                        mobileMenuOpen ? "open" : ""
+                      }`}
+                      onClick={toggleMobileMenu}
+                    >
+                      <div class="mobile-bar-control mobile-bar-control-white d-inline-block d-lg-none">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -123,47 +135,13 @@ const Nav = () => {
             </div>
           </div>
         </div>
-        <div class="responsive-sidebar d-block d-lg-none">
-          <div class="responsive-sidebar-inner">
-            <div class="logo mb-30">
-              <div class="row">
-                <div class="col-6">
-                  <img src={MyBackgroundImage7} />
-                </div>
-                <div class="col-6">
-                  <div class="text-end">
-                    <button class="responsive-sidebar-close">
-                      <i class="fal fa-times"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="resposive-sidebar-menu mb-50">
+        <div className={`responsive-sidebar ${mobileMenuOpen ? "open" : ""}`}>
+          <div className="responsive-sidebar-inner">
+            <nav className="mobile-menu">
               <div class="mm-menu">
                 <ul>
                   <li class="has-droupdown">
-                    <a>Home</a>
-                    <ul class="sub-menu">
-                      <li>
-                        <a>
-                          {" "}
-                          <Link to="/">Home Page </Link>
-                        </a>
-                      </li>
-                      <li>
-                        <a>
-                          {" "}
-                          <Link to="/">Home Page 2</Link>
-                        </a>
-                      </li>
-                      <li>
-                        <a>
-                          {" "}
-                          <Link to="/">Home Page 3</Link>
-                        </a>
-                      </li>
-                    </ul>
+                    <Link to="/">Home</Link>
                   </li>
                   <li>
                     <a>
@@ -214,20 +192,24 @@ const Nav = () => {
                       <Link to="/contact">Contact</Link>
                     </a>
                   </li>
+                  <li>
+                    <a>
+                      {" "}
+                      <Link to="https://kubiqueweb.vercel.app">Login</Link>
+                    </a>
+                  </li>
+                  <li>
+                    <a>
+                      {" "}
+                      <Link to="https://kubiqueweb.vercel.app">Register</Link>
+                    </a>
+                  </li>
                 </ul>
               </div>
-            </div>
-            <div class="responsive-sidebar-actions">
-              <a class="sasup-border-btn d-block sasup-broder-btn-space-3 ms-0 text-center mb-2">
-                <Link to="https://kubiqueweb.vercel.app">Login</Link>
-              </a>
-              <a class="sasup-theme-btn text-center d-inline-block w-100">
-                <Link to="https://kubiqueweb.vercel.app">Register</Link>
-              </a>
-            </div>
+            </nav>
+            <div className="responsive-sidebar-actions">{/* ... */}</div>
           </div>
         </div>
-        <div class="body-overlay"></div>
       </header>
     </div>
   );
