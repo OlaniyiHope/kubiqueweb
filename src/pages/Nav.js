@@ -6,10 +6,7 @@ import MyBackgroundImage3 from "./assets/img/logo/logo-white.png";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 
-import { AuthContext } from "../context/AuthContext";
-
 const Nav = () => {
-  const { user } = useContext(AuthContext);
   return (
     <div>
       <header id="header-wrap">
@@ -94,32 +91,6 @@ const Nav = () => {
                       </ul>
                     </nav>
                   </div>
-                </div>
-                <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-8 col-6">
-                  {user ? (
-                    user.username
-                  ) : (
-                    <div class="sasup-header-action-btn">
-                      <a
-                        class="sasup-transparent-btn d-none d-sm-inline-block"
-                        href="/login"
-                      >
-                        <i class="far fa-user"></i>
-                        <Link to="/login">Login</Link>
-                      </a>
-                      <a
-                        class="sasup-theme-btn style-white ml-25 d-none d-sm-inline-block"
-                        href="/register"
-                      >
-                        <Link to="/register">Register</Link>
-                      </a>
-                      <div class="mobile-bar-control mobile-bar-control-white d-inline-block d-lg-none">
-                        <div class="line"></div>
-                        <div class="line"></div>
-                        <div class="line"></div>
-                      </div>
-                    </div>
-                  )}
                 </div>
               </div>
             </div>
@@ -221,10 +192,10 @@ const Nav = () => {
             </div>
             <div class="responsive-sidebar-actions">
               <a class="sasup-border-btn d-block sasup-broder-btn-space-3 ms-0 text-center mb-2">
-                <Link to="/login">Login</Link>
+                <Link to="https://kubiqueweb.vercel.app">Login</Link>
               </a>
               <a class="sasup-theme-btn text-center d-inline-block w-100">
-                <Link to="/register">Register</Link>
+                <Link to="https://kubiqueweb.vercel.app">Register</Link>
               </a>
             </div>
           </div>
