@@ -28,6 +28,7 @@ function App() {
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/forgot" element={<Forgot />} />
+
           <Route exact path="/reset" element={<Reset />} />
           <Route exact path="/register-company" element={<Registers />} />
           <Route exact path="/new-password" element={<NewPassword />} />

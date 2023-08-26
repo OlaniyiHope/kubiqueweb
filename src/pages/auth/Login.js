@@ -5,7 +5,8 @@ import MyBackgroundImage7 from "../assets/img/logo/logo.png";
 import MyBackgroundImage3 from "../assets/img/logo/logo-white.png";
 import MyBackgroundImage40 from "../assets/img/hero/dashbord-img.jpg";
 import MyBackgroundImage41 from "../assets/img/hero/save.png";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 import { useDispatch } from "react-redux";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import jwtDecode from "jwt-decode";
@@ -21,8 +22,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   // const dispatch = useDispatch();
-
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -53,7 +52,7 @@ const Login = () => {
         credentials
       );
       // dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
-      navigate("/");
+      window.location.href = "https://kubique.vercel.app";
     } catch (err) {
       alert("there is no user with that account");
     }
@@ -185,14 +184,15 @@ const Login = () => {
                       Login
                     </button>
                     <h2 style={{ fontSize: "17px", fontWeight: "800" }}>Or</h2>
-                    <div>
-                      <GoogleLogin
-                        clientId="223427017037-f2ur72ie118jss0fguspipmdqppr80rr.apps.googleusercontent.com"
-                        buttonText="Sign in with Google"
-                        onSuccess={responseGoogle}
-                        onFailure={responseGoogle}
-                        cookiePolicy={"single_host_origin"}
-                      />
+                    <div class="col-xl-12">
+                      <div class="post-check mb-30">
+                        <span>
+                          Do not have an account?{" "}
+                          <span>
+                            <Link to="/register">Sign up</Link>
+                          </span>
+                        </span>
+                      </div>
                     </div>
                   </form>
                 </div>

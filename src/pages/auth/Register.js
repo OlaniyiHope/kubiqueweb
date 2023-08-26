@@ -5,7 +5,7 @@ import MyBackgroundImage7 from "../assets/img/logo/logo.png";
 import MyBackgroundImage3 from "../assets/img/logo/logo-white.png";
 import MyBackgroundImage40 from "../assets/img/hero/dashbord-img.jpg";
 import MyBackgroundImage41 from "../assets/img/hero/save.png";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import GoogleLogin from "react-google-login";
@@ -30,31 +30,7 @@ const Register = () => {
       navigate("/login");
     } catch (err) {}
   };
-  const responseGoogle = (response) => {
-    // Handle the response from Google Sign-In
-    if (response.profileObj) {
-      const { email, name, googleId } = response.profileObj;
-      // Send the necessary data to your server for user creation
-      // You can use fetch or an API library like axios
-      // Example:
-      fetch("/signup-with-google", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, name, googleId }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          // Handle the response from your server
-          console.log(data);
-        })
-        .catch((error) => {
-          // Handle any errors
-          console.error(error);
-        });
-    }
-  };
+
   return (
     <div>
       <div id="__next" data-reactroot="">
@@ -123,8 +99,8 @@ const Register = () => {
                         <div class="post-input post-input-2">
                           <input
                             type="text"
-                            placeholder="Username"
-                            id="username"
+                            placeholder="Company Name"
+                            id="company_name"
                             onChange={handleChange}
                           />
                         </div>
@@ -136,6 +112,27 @@ const Register = () => {
                             type="email"
                             placeholder="Email"
                             id="email"
+                            onChange={handleChange}
+                          />
+                        </div>
+                      </div>
+                      <div class="col-xl-12">
+                        <div class="post-input post-input-2">
+                          <input
+                            type="Number"
+                            placeholder="Phone Number"
+                            id="phone"
+                            onChange={handleChange}
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-xl-12">
+                        <div class="post-input post-input-2">
+                          <textarea
+                            type="text"
+                            placeholder="Address"
+                            id="address"
                             onChange={handleChange}
                           />
                         </div>
@@ -183,13 +180,16 @@ const Register = () => {
                     </button>
                     <h2 style={{ fontSize: "17px", fontWeight: "800" }}>Or</h2>
                     <div>
-                      <GoogleLogin
-                        clientId="223427017037-f2ur72ie118jss0fguspipmdqppr80rr.apps.googleusercontent.com"
-                        buttonText="Sign up with Google"
-                        onSuccess={responseGoogle}
-                        onFailure={responseGoogle}
-                        cookiePolicy={"single_host_origin"}
-                      />
+                      <div class="col-xl-12">
+                        <div class="post-check mb-30">
+                          <span>
+                            Already have an account?{" "}
+                            <span>
+                              <Link to="/login">Sign in.</Link>
+                            </span>
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </form>
                 </div>
