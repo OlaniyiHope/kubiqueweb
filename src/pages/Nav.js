@@ -17,10 +17,15 @@ const Nav = () => {
                 <div class="col-xxl-9 col-xl-9 d-flex align-items-center col-lg-8 col-md-6 col-sm-4 col-6">
                   <div class="sasup-logo mr-35 d-inline-block">
                     <a href="index.html">
-                      <img src={MyBackgroundImage3} />
+                      <bold> </bold>
                     </a>
                     <a>
-                      <img class="logo-2" src={MyBackgroundImage4} />
+                      <bold>
+                        {" "}
+                        <h6 style={{ color: "white", fontSize: "25px" }}>
+                          KUBIQUE
+                        </h6>
+                      </bold>
                     </a>
                   </div>
                   <div class="sasup-header d-none d-lg-inline-block">
