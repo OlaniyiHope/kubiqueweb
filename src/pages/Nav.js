@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import MyBackgroundImage4 from "./assets/img/logo/logo.png";
 import MyBackgroundImage7 from "./assets/img/logo/logo.png";
 import MyBackgroundImage3 from "./assets/img/logo/logo-white.png";
+import { FaTimes } from "react-icons/fa";
+
 import "./Nav.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
@@ -11,6 +13,10 @@ const Nav = () => {
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
   };
   return (
     <div>
@@ -37,50 +43,16 @@ const Nav = () => {
                     <nav id="mobile-menu">
                       <ul>
                         <li>
-                          <a href="index.html">Home</a>
-                          <ul class="sub-menu">
-                            <li>
-                              <a href="index.html">Home Layout 1</a>
-                            </li>
-                            <li>
-                              <a href="home-2.html">Home Layout 2</a>
-                            </li>
-                            <li>
-                              <a href="home-3.html">Home Layout 3</a>
-                            </li>
-                          </ul>
+                          <a href="/">Home</a>
                         </li>
                         <li>
                           <Link to="/about">About</Link>
                         </li>
+
                         <li>
-                          <a href="index.html#">Pages</a>
-                          <ul class="sub-menu">
-                            <li>
-                              <a href="team.html">Team</a>
-                            </li>
-                            <li>
-                              <a href="team-details.html">Team Details</a>
-                            </li>
-                            <li>
-                              <a href="services.html">Service</a>
-                            </li>
-                            <li>
-                              <a href="service-details.html">Service Details</a>
-                            </li>
-                            <li>
-                              <a href="portfolio.html">Portfolio</a>
-                            </li>
-                            <li>
-                              <a href="portfolio-details.html">
-                                Portfolio Details
-                              </a>
-                            </li>
-                            <li>
-                              <a href="error-404.html">Error 404</a>
-                            </li>
-                          </ul>
+                          <Link to="/about">Our service</Link>
                         </li>
+
                         <li>
                           <a href="blog-list.html">Blog</a>
                           <ul class="sub-menu">
@@ -123,10 +95,19 @@ const Nav = () => {
                       }`}
                       onClick={toggleMobileMenu}
                     >
-                      <div class="mobile-bar-control mobile-bar-control-white d-inline-block d-lg-none">
-                        <div class="line"></div>
-                        <div class="line"></div>
-                        <div class="line"></div>
+                      <div
+                        class="mobile-bar-control mobile-bar-control-white d-inline-block d-lg-none"
+                        onClick={toggleMobileMenu}
+                      >
+                        <div
+                          className={`line ${mobileMenuOpen ? "open" : ""}`}
+                        ></div>
+                        <div
+                          className={`line ${mobileMenuOpen ? "open" : ""}`}
+                        ></div>
+                        <div
+                          className={`line ${mobileMenuOpen ? "open" : ""}`}
+                        ></div>
                       </div>
                     </div>
                   </div>
@@ -135,12 +116,34 @@ const Nav = () => {
             </div>
           </div>
         </div>
-        <div className={`responsive-sidebar ${mobileMenuOpen ? "open" : ""}`}>
+        <div
+          className={`responsive-sidebar ${mobileMenuOpen ? "open" : "close"}`}
+        >
           <div className="responsive-sidebar-inner">
+            {/* Mobile menu */}
+
             <nav className="mobile-menu">
               <div class="mm-menu">
                 <ul>
-                  <li class="has-droupdown">
+                  <li className={`line ${mobileMenuOpen ? "close" : ""}`}>
+                    <Link
+                      to="/"
+                      onClick={closeMobileMenu}
+                      style={{ fontSize: "20px" }}
+                    >
+                      KUBIQUE
+                      <span
+                        style={{
+                          display: "inlineBlock",
+                          float: "right",
+                        }}
+                      >
+                        {mobileMenuOpen ? <FaTimes /> : ""}
+                      </span>
+                    </Link>
+                  </li>
+
+                  <li>
                     <Link to="/">Home</Link>
                   </li>
                   <li>
@@ -149,32 +152,13 @@ const Nav = () => {
                       <Link to="/about">About</Link>
                     </a>
                   </li>
-                  <li class="has-droupdown">
-                    <a>Pages</a>
-                    <ul class="sub-menu">
-                      <li>
-                        <a href="team.html">Team</a>
-                      </li>
-                      <li>
-                        <a href="team-details.html">Team Details</a>
-                      </li>
-                      <li>
-                        <a href="services.html">Service</a>
-                      </li>
-                      <li>
-                        <a href="service-details.html">Service Details</a>
-                      </li>
-                      <li>
-                        <a href="portfolio.html">Portfolio</a>
-                      </li>
-                      <li>
-                        <a href="portfolio-details.html">Portfolio Details</a>
-                      </li>
-                      <li>
-                        <a href="error-404.html">Error 404</a>
-                      </li>
-                    </ul>
+                  <li>
+                    <a>
+                      {" "}
+                      <Link to="/about">Our service</Link>
+                    </a>
                   </li>
+
                   <li class="has-droupdown">
                     <a>Blog</a>
                     <ul class="sub-menu">
@@ -207,7 +191,7 @@ const Nav = () => {
                 </ul>
               </div>
             </nav>
-            <div className="responsive-sidebar-actions">{/* ... */}</div>
+            <div className="responsive-sidebar-actions"></div>
           </div>
         </div>
       </header>
